@@ -15,5 +15,13 @@ Challenge: Create a new Github project with NextJS and React that meets the foll
 
 Feel free to add the following
 1. Add some UI/UX features
-2. Unit tests (coverage)
+2. Unit tests (coverage) [x]
 3. Code linting
+
+
+
+##### DONE
+Notes:
+1. npm test will run the unit tests
+
+@

@@ -1,27 +1,22 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import ValidatedInput from '../Inputs/ValidatedInput';
+import ValidatedInput from './Inputs/ValidatedInput';
+import Link from 'next/link';
+import axios from 'axios';
 
-export class ContactForm extends Component {
+export class Form extends Component {
     constructor(props) {
         super(props)
         this.state = {
             name: '',
             message: '',
+            status: ''
         }
     }
-    
-
-    static propTypes = {
-        onSubmit: PropTypes.func.isRequired,
-        name: PropTypes.string,
-        message: PropTypes.string,
-    }
-    
 
     handleChange = ({ name, value }) => {
         this.setState({
-            [name]: value
+            [name]: value,
+            status: ''
         });
     }
 
@@ -38,25 +33,28 @@ export class ContactForm extends Component {
         }
     }
 
-    onSubmit = e => {
+    handleSubmit = e => {
         e.preventDefault();
         const { name, message } = this.state;
-        this.props.onSubmit({
-            name,
-            message,
+        axios.post('/api/guestbook', { name, message });
+        this.setState({
+            name: '',
+            message: '',
+            status: 'Success!'
         });
     }
     
     render() {
         return (
             <div>
-                <form className="contact-form" onSubmit={this.onSubmit}>
+                <Link href="/guestbook">Feed</Link>
+                <form className="contact-form" onSubmit={this.handleSubmit}>
                     <ValidatedInput
                         label="Name" 
                         name="name"
                         type="text"
                         placeholder="Name"
-                        value={this.state.firstName}
+                        value={this.state.name}
                         onChange={this.handleChange}
                         textArea={false}
                         validate={val => (val ? false : 'Name is Required')}
@@ -66,12 +64,13 @@ export class ContactForm extends Component {
                         name="message"
                         type="text"
                         placeholder="Message"
-                        value={this.state.lastName}
+                        value={this.state.message}
                         onChange={this.handleChange}
-                        textArea={false}
+                        textArea={true}
                         validate={val => (val ? false : 'Message is Required')}
                     />
-                    <button type="submit" className="btn btn-primary" disabled={this.getValidation}>{this.props.title}</button>
+                    <button type="submit" className="btn btn-primary" disabled={this.getValidation}>Add to Guest Book</button>
+                    <span style={{ color: 'green' }}>{this.state.status}</span> 
                 </form>
             </div>
         );
@@ -80,4 +79,4 @@ export class ContactForm extends Component {
 
 
 
-export default ContactForm;
+export default Form;

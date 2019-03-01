@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
 
 export class ValidatedInput extends Component {
     constructor(props) {
@@ -21,7 +22,7 @@ export class ValidatedInput extends Component {
         this.props.onChange({ name, value });
     }
 
-    render() {
+    get returnInput () {
         return (
             <div className="form-group">
                 <label>{this.props.label}</label>
@@ -35,6 +36,29 @@ export class ValidatedInput extends Component {
                 />
                 <span style={{ color: 'red' }}>{this.state.error}</span>            
             </div>
+        )
+    }
+
+    get returnTextArea() {
+        return (
+            <div className="form-group">
+                <label>{this.props.label}</label>
+                <textarea
+                    name={this.props.name}
+                    type={this.props.type}
+                    className="form-control"
+                    placeholder={this.props.placeholder}
+                    value={this.state.value}
+                    onChange={this.handleChange}                   
+                />
+                <span style={{ color: 'red' }}>{this.state.error}</span>            
+            </div>
+        )
+    }
+
+    render() {
+        return (
+                this.props.textArea ? this.returnTextArea : this.returnInput
         )
     }
 }

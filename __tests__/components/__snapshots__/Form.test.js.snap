@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Form /> should disable button for invalid form submission 1`] = `
+<div>
+  <Link
+    href="/guestbook"
+  >
+    Feed
+  </Link>
+  <form
+    className="contact-form"
+    onSubmit={[Function]}
+  >
+    <ValidatedInput
+      label="Name"
+      name="name"
+      onChange={[Function]}
+      placeholder="Name"
+      textArea={false}
+      type="text"
+      validate={[Function]}
+      value=""
+    />
+    <ValidatedInput
+      label="Message"
+      name="message"
+      onChange={[Function]}
+      placeholder="Message"
+      textArea={true}
+      type="text"
+      validate={[Function]}
+      value=""
+    />
+    <button
+      className="btn btn-primary"
+      disabled={true}
+      type="submit"
+    >
+      Add to Guest Book
+    </button>
+    <span
+      style={
+        Object {
+          "color": "green",
+        }
+      }
+    >
+      Success!
+    </span>
+  </form>
+</div>
+`;
+
+exports[`<Form /> should render the Form correctly 1`] = `
+<div>
+  <Link
+    href="/guestbook"
+  >
+    Feed
+  </Link>
+  <form
+    className="contact-form"
+    onSubmit={[Function]}
+  >
+    <ValidatedInput
+      label="Name"
+      name="name"
+      onChange={[Function]}
+      placeholder="Name"
+      textArea={false}
+      type="text"
+      validate={[Function]}
+      value=""
+    />
+    <ValidatedInput
+      label="Message"
+      name="message"
+      onChange={[Function]}
+      placeholder="Message"
+      textArea={true}
+      type="text"
+      validate={[Function]}
+      value=""
+    />
+    <button
+      className="btn btn-primary"
+      disabled={true}
+      type="submit"
+    >
+      Add to Guest Book
+    </button>
+    <span
+      style={
+        Object {
+          "color": "green",
+        }
+      }
+    />
+  </form>
+</div>
+`;

@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ValidatedInput /> should render ValidatedInput as a textarea 1`] = `
+<div
+  className="form-group"
+>
+  <label>
+    Message
+  </label>
+  <textarea
+    className="form-control"
+    name="message"
+    onChange={[Function]}
+    placeholder="Message"
+    type="text"
+    value=""
+  />
+  <span
+    style={
+      Object {
+        "color": "red",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`<ValidatedInput /> should render ValidatedInput as an input 1`] = `
+<div
+  className="form-group"
+>
+  <label>
+    Name
+  </label>
+  <input
+    className="form-control"
+    name="name"
+    onChange={[Function]}
+    placeholder="Name"
+    type="text"
+    value=""
+  />
+  <span
+    style={
+      Object {
+        "color": "red",
+      }
+    }
+  />
+</div>
+`;

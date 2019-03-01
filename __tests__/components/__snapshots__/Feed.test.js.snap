@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FeedList /> should render FeedList with empty message 1`] = `
+<div>
+  <Link
+    href="/"
+  >
+    Guest Form
+  </Link>
+</div>
+`;

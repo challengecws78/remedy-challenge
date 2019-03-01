@@ -4,18 +4,26 @@ const next = require('next')
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
+const server = express()
 
 app.prepare().then(() => {
-  const server = express()
+  let guestbook = []
+  
   server.use(express.json())
 
   server.post('/api/guestbook', (req, res, next) => {
-    // A POSTED REQUEST HERE
+    const guest = {
+      name: req.body.name,
+      message: req.body.message
+    }
+
+    guestbook.push(guest);
+    res.send('success!')
   })
 
   server.get('/api/guestbook', (req, res, next) => {
     res.json({
-      posts: []
+      posts: guestbook
     })
   })
 
@@ -31,3 +39,4 @@ app.prepare().then(() => {
   console.error(ex.stack)
   process.exit(1)
 })
+
